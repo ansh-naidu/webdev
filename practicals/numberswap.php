@@ -1,13 +1,16 @@
 <?php
-  $a = 5;
-  $b = 10;
+// Initialize variables
+$a = 5;
+$b = 10;
 
-  echo "Before swapping: a = " . $a . ", b = " . $b . "<br>";
+// Display values before swapping
+echo "Before swapping: a = " . $a . ", b = " . $b . "<br>";
 
-  // Swapping logic using a temporary variable
-  $temp = $a;
-  $a = $b;
-  $b = $temp;
+// Swap values using a temporary variable
+$temp = $a;
+$a = $b;
+$b = $temp;
 
-  echo "After swapping: a = " . $a . ", b = " . $b;
+// Display values after swapping
+echo "After swapping: a = " . $a . ", b = " . $b;
 ?>

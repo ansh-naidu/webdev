@@ -1,18 +1,13 @@
-<?php
 namespace Practicals;
 
 class Song {
     private $title;
     private $artist;
-    private $genre;
-    private $tempo;
 
     // Constructor
-    public function __construct($title, $artist, $genre, $tempo) {
+    public function __construct($title, $artist) {
         $this->setTitle($title);
         $this->setArtist($artist);
-        $this->setGenre($genre);
-        $this->setTempo($tempo);
     }
 
     // Getter and Setter for Title
@@ -32,23 +27,4 @@ class Song {
     public function setArtist($artist) {
         $this->artist = $artist;
     }
-
-    // Getter and Setter for Genre
-    public function getGenre() {
-        return $this->genre;
-    }
-
-    public function setGenre($genre) {
-        $this->genre = $genre;
-    }
-
-    // Getter and Setter for Tempo
-    public function getTempo() {
-        return $this->tempo;
-    }
-
-    public function setTempo($tempo) {
-        $this->tempo = $tempo;
-    }
 }
-?>

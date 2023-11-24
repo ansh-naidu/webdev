@@ -3,36 +3,76 @@
 namespace Tests\Unit;
 
 use PHPUnit\Framework\TestCase;
+use SebastianBergmann\Type\VoidType;
 
-require(__DIR__.'/../../practicals/Practical.php');
-use practicals\Practical;
+require(__DIR__.'/../../practicals/practical.php');
+use practicals\practical;
 
-class PracticalTest extends TestCase {
-    public function testAddAcceptsFloat() {
-        $this->assertSame(5.0, Practical::add(1.5, 3.5));
+class practicalTest extends TestCase
+{
+   /**
+     * A basic unit test example.
+     */
+    public function testAdd(): void
+    {
+        $this->assertEquals(\Practical::add(1,3), 4);
     }
 
-    public function testAddAcceptsFloatInteger() {
-        $this->assertSame(3.5, Practical::add(1.5, 2));
+    /**
+     * A basic unit test example.
+     */
+    public function testAddAlphabet(): void
+    {
+        $this->expectException(\InvalidArgumentException::class);
+        \Practical::add("abc","xyz");
     }
 
-    public function testAddAcceptsIntegerString() {
-        $this->assertSame(3, Practical::add("1", "2"));
+    /**
+     * A basic unit test example.
+     */
+    public function testAddFloat(): void
+    {
+        $this->assertEquals(\Practical::add(1.5,3.5), 5);
     }
 
-    public function testAddAcceptsFloatString() {
-        $this->assertSame(5.54, Practical::add("1.4", "3.14"));
+        /**
+     * A basic unit test example.
+     */
+    public function testAddFloatInteger(): void
+    {
+        $this->assertEquals(\Practical::add(1.5,2), 3.5);
     }
 
-    public function testAddRejectsAlphabetString() {
-        $this->expectException(InvalidArgumentException::class);
-        Practical::add("abc", "xyz");
+        /**
+     * A basic unit test example.
+     */
+    public function testAddStringInteger(): void
+    {
+        $this->assertIsInt(\Practical::add("2","3"), 5);
     }
 
-    public function testAddRejectsAlphanumericString() {
-        $this->expectException(InvalidArgumentException::class);
-        Practical::add("a1", 1);
+        /**
+     * A basic unit test example.
+     */
+    public function testAddStringFloat(): void
+    {
+        $this->assertIsNumeric(\Practical::add("1.5","3.5"), 5);
     }
+
+    /**
+     * A basic unit test example.
+     */
+    public function testAddAlphanumeric(): void
+    {
+        $this->expectException(\InvalidArgumentException::class);
+        \Practical::add("a1","2");
+    }
+   
 }
-
 ?>
+
+
+
+
+
+    

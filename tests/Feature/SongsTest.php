@@ -13,6 +13,16 @@ class SongsTest extends TestCase
      */
     public function test_example(): void
     {
+        $response = $this->get('/');
+
+        $response->assertStatus(200);
+    }
+    
+       /**
+     * A basic feature test songs.
+     */
+    public function testSongsOk(): void
+    {
         $response = $this->get('/songs');
 
         $response->assertStatus(200);
